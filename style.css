@@ -16,3 +16,36 @@ nav a {
     color: rgb(93, 124, 176);
     font-weight: bold;
 }
+
+    div {
+        border: 1px solid black;
+        height:300px;
+    }
+    
+    .rumah {
+        height: 700px;
+    }
+    
+    .container-teras {
+        display: flex;
+        background-color: azure;
+        width: 90%;
+    }
+    
+    .taman {
+        background-color: rgb(2, 227, 70);
+        width: 300px;
+    }
+    
+    .kolam {
+        background-color: aqua;
+        width: 400px;
+        position: relative;
+        top: 0;
+    }
+
+    .parkiran {
+        background-color: brown;
+        margin-left: 20px;
+        width: 900px;
+    }
