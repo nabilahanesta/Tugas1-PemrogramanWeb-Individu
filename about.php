@@ -10,13 +10,13 @@
         <h1 style="font-family: Arial; color: #331900   ; text-decoration: none; "> Nakhara Brew</h1>
         <hr width="50%" color="#CC6600">
         <nav align="center">
-            <a href="home.html"style="text-decoration: none;"> 
+            <a href="home.php"style="text-decoration: none;"> 
                 <button style="background-color: #331900; color: white; padding: 5px 5px; border: none; border-radius: 5px; font-size: 13px;">HOME</button></a>
-            <a href="profile.html"style="text-decoration: none;"> 
+            <a href="profile.php"style="text-decoration: none;"> 
                     <button style="background-color: #331900; color: white; padding: 5px 5px; border: none; border-radius: 5px; font-size: 13px;">PROFILE</button></a>
-            <a href="about.html"style="text-decoration: none;"> 
+            <a href="about.php"style="text-decoration: none;"> 
                 <button style="background-color: #331900; color: white; padding: 5px 5px; border: none; border-radius: 5px; font-size: 13px;">ABOUT US</button></a>
-            <a href="login.html"style="text-decoration: none;">
+            <a href="login.php"style="text-decoration: none;">
         </nav>
         <img src="logo.png" alt="" width="300px" height="200px" style="border-radius: 50%; border: 2px solid #CC6600; margin-top: 20px;">
         <br> <br>
