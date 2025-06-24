@@ -29,20 +29,32 @@
    }
    
    function tambahmahasiswa($data)
-   {
+{
     global $koneksi;
 
-     $nama = $data["nama"];
-     $nim = $data["nim"];
-     $jurusan = $data["jurusan"];
-     $nohp = $data["nohp"];
+    $nama = $data["nama"];
+    $nim = $data["nim"];
+    $jurusan = $data["jurusan"];
+    $nohp = $data["nohp"];
 
-     $query = "INSERT INTO mahasiswa VALUES ('', '', '$nama', '$nim', '$jurusan', '$nohp')";
+    // Handle upload foto
+    $namaFile = $_FILES['foto']['name'];
+    $tmpFile = $_FILES['foto']['tmp_name'];
+    $folder = 'images/';
+    $targetPath = $folder . $namaFile;
+
+    // Pindahkan file ke folder images/
+    if(move_uploaded_file($tmpFile, $targetPath)) {
+        // Simpan nama file ke DB
+        $query = "INSERT INTO mahasiswa VALUES ('', '$namaFile', '$nama', '$nim', '$jurusan', '$nohp')";
         mysqli_query($koneksi, $query);
         return mysqli_affected_rows($koneksi);
+    } else {
+        return 0; // gagal upload
+    }
+}
 
-   }
-
+   
    function hapusdata($id)
    {
     global $koneksi;

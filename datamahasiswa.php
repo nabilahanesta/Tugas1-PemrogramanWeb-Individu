@@ -50,9 +50,6 @@
     
 ?>  
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,9 +59,9 @@
 </head>
 <body>
     <h1> Data Mahasiswa </h1>
-    <a href="tambahdata.php"><button style="margin-bootom: 12 px; background-color :lightblue;" >Tambah Data</button></a>
+    <a href="tambahdata.php"><button style="margin-bottom: 12px; background-color :lightblue;" >Tambah Data</button></a>
     
-    <table border="1" cellspasing="0" cellpadding="10">
+    <table border="1" cellspacing="0" cellpadding="10">
         <tr>
             <th> No </th>
             <th> Foto </th>
@@ -79,18 +76,15 @@
         foreach ($rows as $mhs) { ?>
         <tr>
             <td><?= $i ?></td>
-            <td><img src="images/<?=$mhs['foto'];?> "alt="<?=$mhs['nama'];?>"width="100"></td>
+            <td><img src="images/<?=$mhs['foto'];?>" alt="<?=$mhs['nama'];?>" width="100"></td>
             <td><?= $mhs['nama']; ?></td>
             <td><?= $mhs['nim']; ?></td>
             <td><?= $mhs['jurusan']; ?></td>
             <td><?= $mhs['nohp']; ?></td>
-            <td><a href= "hapusdata.php?id=<?= $mhs['id']; ?>"><button style="margin-bottom: 12px; background-color :red;" >Hapus</button></a>
-                
-        
+            <td><a href="hapusdata.php?id=<?= $mhs['id']; ?>"><button style="margin-bottom: 12px; background-color :red;" >Hapus</button></a></td>
         </tr>
         <?php $i++; } ?>
     </table>
-
 
 </body>
 </html>
