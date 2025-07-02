@@ -38,15 +38,17 @@
     $nohp = $data["nohp"];
 
     // Handle upload foto
-    $namaFile = $_FILES['foto']['name'];
-    $tmpFile = $_FILES['foto']['tmp_name'];
+    $file = $_FILES['foto']['name'];
+    $namafile = date ('day_hm'). '_' . $file;
+    $temp = $_FILES['foto']['tmp_name'];
     $folder = 'images/';
-    $targetPath = $folder . $namaFile;
+    $path = $folder . $namafile;
 
     // Pindahkan file ke folder images/
-    if(move_uploaded_file($tmpFile, $targetPath)) {
+    if(move_uploaded_file($temp, $path)) {
+
         // Simpan nama file ke DB
-        $query = "INSERT INTO mahasiswa VALUES ('', '$namaFile', '$nama', '$nim', '$jurusan', '$nohp')";
+        $query = "INSERT INTO mahasiswa VALUES ('', '$namafile', '$nama', '$nim', '$jurusan', '$nohp')";
         mysqli_query($koneksi, $query);
         return mysqli_affected_rows($koneksi);
     } else {
@@ -61,6 +63,43 @@
     $query= "DELETE FROM mahasiswa WHERE id = $id";
     mysqli_query($koneksi, $query);
     
+    return mysqli_affected_rows($koneksi);
+   }
+
+   function ubahdata($data, $id)
+   {
+    global $koneksi;
+
+    $nama = $data["nama"];
+    $nim = $data["nim"];
+    $jurusan = $data["jurusan"];
+    $nohp = $data["nohp"];
+
+    // Handle upload foto
+    if($_FILES['foto']['error'] === 4) {
+        // Jika tidak ada file yang diupload, tetap gunakan foto lama
+        $namafile = $data["foto_lama"];
+    } else {
+        // Jika ada file yang diupload, proses upload
+        $file = $_FILES['foto']['name'];
+        $namafile = date ('day_hm'). '_' . $file;
+        $temp = $_FILES['foto']['tmp_name'];
+        $folder = 'images/';
+        $path = $folder . $namafile;
+
+        move_uploaded_file($temp, $path);
+    }
+
+    // Update data ke DB
+    $query = "UPDATE mahasiswa SET 
+    foto='$namafile',
+    nama='$nama', 
+    nim='$nim', 
+    jurusan='$jurusan', 
+    nohp='$nohp' 
+    WHERE id=$id";
+    mysqli_query($koneksi, $query);
+
     return mysqli_affected_rows($koneksi);
    }
 

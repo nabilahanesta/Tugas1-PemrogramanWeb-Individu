@@ -1,0 +1,18 @@
+digraph UseCaseSRIKANDI {
+	rankdir=LR size="10,6"
+	node [shape=ellipse]
+	A1 [label=Admin shape=box]
+	A2 [label=Pegawai shape=box]
+	UC1 [label=Login]
+	UC2 [label="Kelola Surat"]
+	UC3 [label="Kelola Arsip Dinamis"]
+	UC4 [label="Lihat & Cari Arsip"]
+	UC5 [label="Generate Laporan"]
+	A1 -> UC1
+	A1 -> UC2
+	A1 -> UC3
+	A1 -> UC4
+	A1 -> UC5
+	A2 -> UC1
+	A2 -> UC4
+}

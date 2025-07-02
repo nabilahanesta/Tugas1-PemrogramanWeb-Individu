@@ -81,7 +81,8 @@
             <td><?= $mhs['nim']; ?></td>
             <td><?= $mhs['jurusan']; ?></td>
             <td><?= $mhs['nohp']; ?></td>
-            <td><a href="hapusdata.php?id=<?= $mhs['id']; ?>"><button style="margin-bottom: 12px; background-color :red;" >Hapus</button></a></td>
+            <td><a href="hapusdata.php?id=<?= $mhs['id']; ?>" onclick="return confirm ('Yakinnn?');"><button style="margin-bottom: 12px; background-color :red;" >Hapus</button></a> | 
+            <a href="ubahdata.php/?id=<?= $mhs["id"] ?>"> <button style="margin-bottom: 12px; background-color :blue; color: antiquewhite;"> Edit </button>  </td>
         </tr>
         <?php $i++; } ?>
     </table>
